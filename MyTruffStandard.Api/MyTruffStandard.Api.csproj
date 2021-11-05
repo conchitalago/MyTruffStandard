@@ -4,5 +4,11 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyTruffStandard.Domain\MyTruffStandard.Domain.csproj" />
+    <ProjectReference Include="..\MyTruffStandard.Infra\MyTruffStandard.Infra.csproj" />
+    <ProjectReference Include="..\MyTruffStandard.ServiceLibrary\MyTruffStandard.ServiceLibrary.csproj" />
+  </ItemGroup>
+
 
 </Project>

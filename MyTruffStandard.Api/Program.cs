@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyTruffStandard.Api
+namespace MyTruffStandard.API
 {
     public class Program
     {
