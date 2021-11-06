@@ -33,6 +33,7 @@ namespace MyTruffStandard.API
             services.AddSingleton<IClientService, ClientService>();
             services.AddSingleton<IVendorRepository, VendorRepository>();
             services.AddSingleton<IVendorService, VendorService>();
+            services.AddLogging();
             services.AddControllers();
         }
 
