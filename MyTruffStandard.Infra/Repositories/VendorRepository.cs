@@ -40,7 +40,8 @@ namespace MyTruffStandard.Infra.Repositories
 
                 using (SqlCommand command = new SqlCommand(Queries.VendorsQueries.GetVendorById, connection))
                 {
-                    SqlDataReader reader = command.ExecuteReader();
+                    command.Parameters.AddWithValue("@Id", id);
+                    var reader = command.ExecuteReader();
 
                     while (reader.Read())
                     {
@@ -53,21 +54,21 @@ namespace MyTruffStandard.Infra.Repositories
         }
         public bool AddVendor(Vendor vendor)
         {
-            bool result = false;
             using (SqlConnection connection = new SqlConnection(ConectionString.MyTruffConection))
             {
                 connection.Open();
                 StringBuilder sb = new StringBuilder();
                 using (SqlCommand command = new SqlCommand(sb.AppendFormat(Queries.VendorsQueries.InsertNewVendor, vendor.Id, vendor.FullName, vendor.Cif).ToString(), connection))
                 {
-                    int rows = command.ExecuteNonQuery();
-                    if (rows > 0)
-                    {
-                        result = true;
-                    }
+                    command.Parameters.AddWithValue("@Id", vendor.Id);
+                    command.Parameters.AddWithValue("@FullName", vendor.FullName);
+                    command.Parameters.AddWithValue("@Cif", vendor.Cif);
+                    var reader = command.ExecuteNonQuery();
+                    if (reader > 0)
+                        return true;
+                    return false;
                 }
             }
-            return result;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using MyTruffStandard.Domain.Models;
 using MyTruffStandard.Domain.Services;
+using MyTruffStandard.Infra;
 using MyTruffStandard.ServiceLibrary.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -31,8 +32,7 @@ namespace MyTruffStandard.ServiceLibrary.Services
             }
             catch (Exception)
             {
-                //Serilog
-                return false;
+                throw;
             }
 
         }

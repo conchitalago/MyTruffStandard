@@ -25,15 +25,10 @@ namespace MyTruffStandard.ServiceLibrary.Services
         }
         public bool InsertNewVendor(Vendor vendorNew)
         {
-            try
-            {
+
                 return _vendorRepository.AddVendor(vendorNew);
-            }
-            catch (Exception)
-            {
-                //SeriLog
-                return false;
-            }
+
+
         }
     }
 }

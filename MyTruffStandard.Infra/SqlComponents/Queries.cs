@@ -15,8 +15,8 @@ namespace MyTruffStandard.Infra.SqlComponents
         public static class VendorsQueries
         {
             public const string GetAllVendors = "SELECT * FROM Vendors";
-            public const string GetVendorById = "SELECT * FROM Vendors WHERE Id={0}";
-            public const string InsertNewVendor = "INSERT INTO Vendors(Id,FullName,Cif) VALUES(@Id,@Company,@Cif)";
+            public const string GetVendorById = "SELECT * FROM Vendors WHERE Id=@Id";
+            public const string InsertNewVendor = "INSERT INTO Vendors (Id,FulName,Cif) VALUES ({0},'{1}','{2}') ";
         }
     }
 }
